@@ -10,6 +10,14 @@ public class Controller {
     Model model;
     Scanner scanner;
 
+    String name;
+    String surname;
+    String midname;
+    StringBuilder surnameName;
+
+    String nickName;
+
+
     public Controller (View view, Model model, Scanner scanner) {
         this.view = view;
         this.model = model;
@@ -18,7 +26,12 @@ public class Controller {
 
 
     public void start() {
-        inputStringWithRegex(TextConstants.NAME, RegexContainer.REGEX_NAME);
+        surname = inputStringWithRegex(TextConstants.SURNAME, RegexContainer.REGEX_SURNAME);
+        name = inputStringWithRegex(TextConstants.NAME, RegexContainer.REGEX_NAME);
+        midname = inputStringWithRegex(TextConstants.MIDDLE_NAME, RegexContainer.REGEX_MIDNAME);
+        surnameName = (new StringBuilder(surname)).append(" ").append(name.substring(0,1)).append(".");
+
+
     }
 
 
